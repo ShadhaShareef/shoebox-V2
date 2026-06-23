@@ -1,31 +1,29 @@
-node_modules/
-vendor/
-build/
-dist/
-coverage/
-
-# Environment and secrets
+# Secrets and environment overrides
 .env
-.env.*
+.env.local
+.env.*.local
 !.env.example
 
-# Runtime storage and generated files
-storage/*
+# Runtime storage
+storage/sessions/*
+!storage/sessions/.gitkeep
 !storage/.htaccess
-!storage/**/.htaccess
+
+# User uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Local logs and temp files
 *.log
 *.tmp
 *.cache
-
-# OS/editor noise
-.DS_Store
-Thumbs.db
 *.swp
 *.swo
 
-# Optional local database dumps/backups
-database/*.sqlite
-database/*.sqlite3
-database/*.db
-database/*.dump
-database/*.backup
+# OS noise
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
