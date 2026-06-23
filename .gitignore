@@ -1,0 +1,31 @@
+node_modules/
+vendor/
+build/
+dist/
+coverage/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Runtime storage and generated files
+storage/*
+!storage/.htaccess
+!storage/**/.htaccess
+*.log
+*.tmp
+*.cache
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Optional local database dumps/backups
+database/*.sqlite
+database/*.sqlite3
+database/*.db
+database/*.dump
+database/*.backup

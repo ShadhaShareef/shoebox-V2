@@ -1,0 +1,26 @@
+DirectoryIndex index.php index.html
+
+# Block access to secrets, config, and internal paths
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^\.env - [F,L]
+  RewriteRule ^config/ - [F,L]
+  RewriteRule ^database/ - [F,L]
+  RewriteRule ^includes/ - [F,L]
+  RewriteRule ^storage/ - [F,L]
+</IfModule>
+
+# Security headers (Apache)
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
